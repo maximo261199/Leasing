@@ -56,28 +56,28 @@
 
             <div class="fondo">
                 <div class="dentro">
-                    <h2 class="mt-1"><b>Datos Del Prestamo</b></h2>
+
+                    <h2 class="mt-1"><b>Datos De los Costes / Gastos Iniciales</b></h2>
                     <form class="m-0 p-0">
                         <div class="form-group row pb-0">
-                            <label for="inputPRECIO" class="col-sm-5 col-form-label">Precio de Venta del Activo</label>
+                            <label for="inputNOTARIALEs" class="col-sm-5 col-form-label">Costos Notariales</label>
                             <div class="col-sm-5">
-                                <input type="number" class="form-control" id="inputPrecio" placeholder="precio">
+                                <input type="number" class="form-control" id="inputNotariales"
+                                    placeholder="Costo Notariales">
                             </div>
                         </div>
+
+
                         <div class="form-group row pb-0">
-                            <label for="inputAÑOS" class="col-sm-5 col-form-label">N° de años</label>
-                            <div class="col-sm-5">
-                                <input type="number" class="form-control" id="inputAños" placeholder="N° de años">
-                            </div>
-                        </div>
-                        <div class="form-group row pb-0 ">
-                            <label for="inputFRECUENCIA" class="col-sm-5 col-form-label">N° de años</label>
-                            <div class="col-sm-5">
-                                <div class="dropdown ">
-                                    <button class="btn btn-secondary dropdown-toggle w-100" type="button"
+                            <label for="inputCOSTOS" class="col-sm-5 col-form-label">% Costos Registrales</label>
+                            <div class="col-sm-4 columna ">
+                                <input type="number" step="0.00000001" min="0" max="10"
+                                    class="form-control col-sm-1 h-75" id="input" placeholder="Costos Registrales">
+                                <div class="dropdowncol-sm-1 ">
+                                    <button class="btn btn-secondary dropdown-toggle boto" type="button"
                                         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">
-                                       Mesual
+                                        Mesual
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="#">Action</a>
@@ -85,18 +85,22 @@
                                         <a class="dropdown-item" href="#">Something else here</a>
                                     </div>
                                 </div>
-
                             </div>
+
                         </div>
 
-                        <div class="form-group row pb-0 ">
-                            <label for="inputDIAS" class="col-sm-5 col-form-label">Dias por año</label>
-                            <div class="col-sm-5">
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle col-sm-5 w-100" type="button"
+
+
+                        <div class="form-group row pb-0">
+                            <label for="inputTASACION" class="col-sm-5 col-form-label">% Tasacion</label>
+                            <div class="col-sm-4 columna ">
+                                <input type="number" step="0.00000001" min="0" max="10"
+                                    class="form-control col-sm-1 h-75" id="inputTasacion" placeholder="Tasacion">
+                                <div class="dropdowncol-sm-1 ">
+                                    <button class="btn btn-secondary dropdown-toggle boto" type="button"
                                         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">
-                                        360
+                                        Mensual
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="#">Action</a>
@@ -104,55 +108,64 @@
                                         <a class="dropdown-item" href="#">Something else here</a>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
 
                         <div class="form-group row pb-0">
-                            <label for="inputTEA" class="col-sm-5 col-form-label">%TEA</label>
-                            <div class="col-sm-4">
-                                <input type="number" step="0.00000001" min="0" max="10" class="form-control" id="inputTea" placeholder="TEA">
-                                
+                            <label for="inputESTUDIO" class="col-sm-5 col-form-label">% Comision de estudio</label>
+                            <div class="col-sm-4 columna ">
+                                <input type="number" step="0.00000001" min="0" max="10"
+                                    class="form-control col-sm-1 h-75" id="inputEstudio"
+                                    placeholder="Comision de estudio">
+                                <div class="dropdowncol-sm-1 ">
+                                    <button class="btn btn-secondary dropdown-toggle boto" type="button"
+                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        Mensual
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
                             </div>
-                            <label class="col-sm-1">%</label>
                         </div>
 
                         <div class="form-group row pb-0">
-                            <label for="inputIGV" class="col-sm-5 col-form-label">% de IGV</label>
-                            <div class="col-sm-4">
-                                <input type="number" step="0.001" min="0" max="10" class="form-control" id="inputIgv" placeholder="IGV">
-                                
+                            <label for="inputACTIVACION" class="col-sm-5 col-form-label">% Comision de
+                                Activacion</label>
+                            <div class="col-sm-4 columna ">
+                                <input type="number" step="0.00000001" min="0" max="10"
+                                    class="form-control col-sm-1 h-75" id="inputActivacion"
+                                    placeholder="Comision de activacion">
+                                <div class="dropdowncol-sm-1 ">
+                                    <button class="btn btn-secondary dropdown-toggle boto" type="button"
+                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        Mensual
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
                             </div>
-                            <label class="col-sm-1">%</label>
                         </div>
 
-                        <div class="form-group row pb-0">
-                            <label for="inputRENTA" class="col-sm-5 col-form-label">% de impuesto a la renta</label>
-                            <div class="col-sm-4">
-                                <input type="number" step="0.001" min="0" max="10" class="form-control" id="inputRenta" placeholder="Renta">
-                                
-                            </div>
-                            <label class="col-sm-1">%</label>
-                        </div>
 
-                        <div class="form-group row pb-0">
-                            <label for="inputRECOMPRA" class="col-sm-5 col-form-label">% de recompra</label>
-                            <div class="col-sm-4">
-                                <input type="number" step="0.001" min="0" max="10" class="form-control" id="inputRecompra" placeholder="Recompra">
-                                
-                            </div>
-                            <label class="col-sm-1">%</label>
-                        </div>
+               
 
-                    </form>
-                    <RouterLink to="/home/prestamo/calculo" type="button" class="btn btn-lg text-white bg-info mt-3 w-25  ">Siguiente</RouterLink>
-                 
 
-                </div>
+                </form>
+                <button to="/home/prestamo/calculo" class="text-white bg-info mt-3 w-25 ">Calcular</button>
+
             </div>
-
-
         </div>
+
+
+    </div>
     </div>
 </template>
 
@@ -226,7 +239,7 @@
 
 }
 
-form{
+form {
     background-color: rgb(192, 192, 203);
     border-radius: 3%;
 }
@@ -241,5 +254,14 @@ form{
     background-color: white;
     height: 100%;
 
+}
+
+.columna {
+    display: flex;
+
+}
+
+.boto {
+    margin-top: 0%;
 }
 </style>

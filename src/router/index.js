@@ -6,6 +6,7 @@ import Configuracion from '../views/ConfiguracionView.vue'
 import Usuario from '../views/UsuarioView.vue'
 import Ayuda from '../views/AyudaView.vue'
 import Prestamo from '../views/DatosDelPrestamoView.vue'
+import Calculo from '../views/CalculoView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -53,6 +54,11 @@ const router = createRouter({
       path: '/home/prestamo',
       name: 'prestamo',
       component: Prestamo
+    },
+    {
+      path: '/home/prestamo/calculo',
+      name: 'calculo',
+      component: Calculo
     }
   
   ]
