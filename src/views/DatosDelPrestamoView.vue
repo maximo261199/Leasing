@@ -1,3 +1,11 @@
+<script setup>
+import {ref} from 'vue'
+
+const precio = ref();
+const NDeAnos = ref();
+
+</script>
+
 <template>
     <div class="contenedor ">
         <div class="menu1 ">
@@ -61,23 +69,27 @@
                         <div class="form-group row pb-0">
                             <label for="inputPRECIO" class="col-sm-5 col-form-label">Precio de Venta del Activo</label>
                             <div class="col-sm-5">
-                                <input type="number" class="form-control" id="inputPrecio" placeholder="precio">
+                                <input type="number" class="form-control" id="inputPrecio" v-model="precio"  placeholder="precio">
                             </div>
+                           
                         </div>
+                        
                         <div class="form-group row pb-0">
                             <label for="inputAÑOS" class="col-sm-5 col-form-label">N° de años</label>
                             <div class="col-sm-5">
-                                <input type="number" class="form-control" id="inputAños" placeholder="N° de años">
+                                <input type="number" class="form-control" id="inputAños" v-model="NDeAnos" placeholder="N° de años">
+                                <p>{{precio*NDeAnos}}</p>
                             </div>
                         </div>
                         <div class="form-group row pb-0 ">
                             <label for="inputFRECUENCIA" class="col-sm-5 col-form-label">N° de años</label>
                             <div class="col-sm-5">
+                                
                                 <div class="dropdown ">
                                     <button class="btn btn-secondary dropdown-toggle w-100" type="button"
                                         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">
-                                       Mesual
+                                       Mensual
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="#">Action</a>
@@ -156,11 +168,7 @@
     </div>
 </template>
 
-<script setup>
 
-
-
-</script>
 
 <style  scoped>
 .contenedor {

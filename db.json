@@ -1,0 +1,53 @@
+{
+ 
+
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "usuario": [
+    {
+      "id": 1,
+      "name": "Rukanas",
+      "gmail": "rukanas@gmail.com",
+      "ruc": 201457934,
+      "password" :123456
+    },
+    {
+      "id": 2,
+      "name": "Grupo Rojas",
+      "gmail": "grupo_rojas@gmail.com",
+      "ruc": 201412795,
+      "password" :123123
+    },
+    {
+      "id": 3,
+      "name": "Dinamin",
+      "gmail": "dinamin@gmail.com",
+      "ruc": 201414821,
+      "password" :123412
+    },
+    {
+      "id": 4,
+      "name": "Grupo Roma",
+      "gmail": "grupo_roma@gmail.com",
+      "ruc": 201459763,
+      "password" :123451
+    }
+  ],
+
+
+  "profile": {
+    "name": "typicode"
+  }
+}

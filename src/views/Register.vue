@@ -8,7 +8,7 @@
         </div>
         <div class="menu2">
             <div class="col border-primary formulario ">
-            <form>
+            <form @submit.prevent="handleSubmit">
                 <div class="form-group">
                     <label for="userName">User name</label>
                     <input type="name" class="form-control" id="userName" aria-describedby="emailHelp"
@@ -17,13 +17,13 @@
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Enter email">
+                        placeholder="Enter email" v-model.trim="email">
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                         else.</small>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword1">Password</label>
-                    <input type="password" class="form-control" id="inputPassword1" placeholder="Password">
+                    <input type="password" class="form-control" id="inputPassword1" placeholder="Password" v-model.trim="password">
                 </div>
                 <div class="form-group">
                     <label for="repitInputPassword1">Repit Password</label>
@@ -33,8 +33,8 @@
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="Check1 ">Aceptar termino y condiciones</label>
                 </div>
-                <RouterLink to="/" type="submit" class="btn btn-primary">Iniciar</RouterLink>
-               
+                <!--  <RouterLink to="/" :disabled="userStore.loadingUser">Crear usuario</RouterLink>-->
+                <button type="submit" :disabled="userStore.loadingUser" >Crear usuario</button>
             </form>
         </div>
 
@@ -43,13 +43,25 @@
 </template>
 
 <script setup>
-import {useRoute, useRouter} from "vue-router/dist/vue-router";
+import { ref } from 'vue';
+import {useUserStore} from '../stores/user'
 import router from "../router";
-import {ref} from 'vue';
-
-const home = () =>{
-router.push(`/`);
+const userStore = useUserStore()
+const email = ref('')
+const password = ref('')
+const pagina = () =>{
+    router.push(`/`);
 }
+
+const handleSubmit = async() => {
+  if(!email.value || password.value.length < 6){
+    return alert('llena los campos')
+  }
+  await userStore.registerUser(email.value, password.value)
+
+}
+
+
 </script>
 
 <style  scoped>

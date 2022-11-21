@@ -73,15 +73,34 @@
                 </div>
                 
             </div>     
-            
+            <div v-if="data">
+  <ul class="list-group">
+  <li v-for="poke in data" class="list-group-item">
+    {{poke.name}}
+  </li>
+  </ul>
     
-
+</div>
         </div>
     </div>
 </template>
 
 <script setup>
+import {RouterLink} from 'vue-router'
+import {useGetData} from '@/composables/getData';
+
+const {data, loading, getData, error} = useGetData();
+
+getData("http://localhost:3000/usuario")
+
+
 const nombre = "fulanito"
+
+
+
+
+
+
 </script>
 
 <style  scoped>
