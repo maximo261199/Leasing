@@ -1,3 +1,28 @@
+<script setup>
+
+import { ref } from 'vue'
+import Dropdown from 'primevue/dropdown';
+
+
+const costoNotariales = ref();
+const costosRegistrales = ref();
+const tasacion = ref();
+const comisionEstudio = ref();
+const ComisionActivacion = ref();
+
+const selectedFrecuenciaCalcular = ref();
+const frecuenciaCalcular = ref([
+        { name: "Mensual", code: 30},
+        { name: "Bimestral", code: 60},
+        { name: "Trimestral", code: 90 },
+        { name: "Cuatrimestral", code: 120 },
+        { name: "Semestral", code: 180 },
+        { name: "Anual", code: 360 }
+
+]);
+
+</script>
+
 <template>
     <div class="contenedor ">
         <div class="menu1 ">
@@ -62,7 +87,7 @@
                         <div class="form-group row pb-0">
                             <label for="inputNOTARIALEs" class="col-sm-5 col-form-label">Costos Notariales</label>
                             <div class="col-sm-5">
-                                <input type="number" class="form-control" id="inputNotariales"
+                                <input type="number" class="form-control" id="inputNotariales" v-model="costoNotariales"
                                     placeholder="Costo Notariales">
                             </div>
                         </div>
@@ -72,18 +97,11 @@
                             <label for="inputCOSTOS" class="col-sm-5 col-form-label">% Costos Registrales</label>
                             <div class="col-sm-4 columna ">
                                 <input type="number" step="0.00000001" min="0" max="10"
-                                    class="form-control col-sm-1 h-75" id="input" placeholder="Costos Registrales">
-                                <div class="dropdowncol-sm-1 ">
-                                    <button class="btn btn-secondary dropdown-toggle boto" type="button"
-                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        Mesual
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
+                                    class="form-control col-sm-1 h-75" id="input" v-model="costosRegistrales" placeholder="Costos Registrales">
+                                <div class="col-sm-1 ">
+                                    <Dropdown v-model="selectedFrecuenciaCalcular" :options="frecuenciaCalcular" optionLabel="name"
+                                    optionValue="code" placeholder="Seleccione la fecuencia" 
+                                    class=" dropdown-toggle btn btn-secondary" />
                                 </div>
                             </div>
 
@@ -95,19 +113,14 @@
                             <label for="inputTASACION" class="col-sm-5 col-form-label">% Tasacion</label>
                             <div class="col-sm-4 columna ">
                                 <input type="number" step="0.00000001" min="0" max="10"
-                                    class="form-control col-sm-1 h-75" id="inputTasacion" placeholder="Tasacion">
-                                <div class="dropdowncol-sm-1 ">
-                                    <button class="btn btn-secondary dropdown-toggle boto" type="button"
-                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        Mensual
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
+                                    class="form-control col-sm-1 h-75" id="inputTasacion" v-model="tasacion" placeholder="Tasacion">
+                                    <div class="col-sm-1 ">
+                                    <Dropdown v-model="selectedFrecuenciaCalcular" :options="frecuenciaCalcular" optionLabel="name"
+                                    optionValue="code" placeholder="Seleccione la fecuencia"
+                                    class=" dropdown-toggle btn btn-secondary" />
                                 </div>
+
+
                             </div>
                         </div>
 
@@ -115,20 +128,15 @@
                             <label for="inputESTUDIO" class="col-sm-5 col-form-label">% Comision de estudio</label>
                             <div class="col-sm-4 columna ">
                                 <input type="number" step="0.00000001" min="0" max="10"
-                                    class="form-control col-sm-1 h-75" id="inputEstudio"
+                                    class="form-control col-sm-1 h-75" id="inputEstudio" v-model="comisionEstudio"
                                     placeholder="Comision de estudio">
-                                <div class="dropdowncol-sm-1 ">
-                                    <button class="btn btn-secondary dropdown-toggle boto" type="button"
-                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        Mensual
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
+                                    <div class="col-sm-1 ">
+                                    <Dropdown v-model="selectedFrecuenciaCalcular" :options="frecuenciaCalcular" optionLabel="name"
+                                    optionValue="code" placeholder="Seleccione la fecuencia"
+                                    class=" dropdown-toggle btn btn-secondary" />
                                 </div>
+
+
                             </div>
                         </div>
 
@@ -137,20 +145,15 @@
                                 Activacion</label>
                             <div class="col-sm-4 columna ">
                                 <input type="number" step="0.00000001" min="0" max="10"
-                                    class="form-control col-sm-1 h-75" id="inputActivacion"
+                                    class="form-control col-sm-1 h-75" id="inputActivacion" v-model="comisionEstudio"
                                     placeholder="Comision de activacion">
-                                <div class="dropdowncol-sm-1 ">
-                                    <button class="btn btn-secondary dropdown-toggle boto" type="button"
-                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        Mensual
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
+                                    <div class="col-sm-1 ">
+                                    <Dropdown v-model="selectedFrecuenciaCalcular" :options="ComisionActivacion" optionLabel="name"
+                                    optionValue="code" placeholder="Seleccione la fecuencia"
+                                    class=" dropdown-toggle btn btn-secondary" />
                                 </div>
+
+
                             </div>
                         </div>
 
@@ -169,11 +172,7 @@
     </div>
 </template>
 
-<script setup>
 
-
-
-</script>
 
 <style  scoped>
 .contenedor {

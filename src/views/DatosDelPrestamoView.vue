@@ -1,8 +1,31 @@
 <script setup>
-import {ref} from 'vue'
+
+import { ref } from 'vue'
+import Dropdown from 'primevue/dropdown';
 
 const precio = ref();
 const NDeAnos = ref();
+const tea = ref();
+const igv = ref();
+const impuesto = ref();
+const recompra = ref();
+
+const selectedDias = ref();
+const selectedFrecuencia = ref();
+const dias = ref([
+    { name: "Año ordinario (360 días)", code: 360 },
+    { name: "Año exacto (365 días)", code: 365 }
+
+]);
+const frecuencia = ref([
+        { name: "Mensual", code: 30},
+        { name: "Bimestral", code: 60},
+        { name: "Trimestral", code: 90 },
+        { name: "Cuatrimestral", code: 120 },
+        { name: "Semestral", code: 180 },
+        { name: "Anual", code: 360 }
+
+]);
 
 </script>
 
@@ -69,34 +92,34 @@ const NDeAnos = ref();
                         <div class="form-group row pb-0">
                             <label for="inputPRECIO" class="col-sm-5 col-form-label">Precio de Venta del Activo</label>
                             <div class="col-sm-5">
-                                <input type="number" class="form-control" id="inputPrecio" v-model="precio"  placeholder="precio">
+                                <input type="number" class="form-control" id="inputPrecio" v-model="precio"
+                                    placeholder="precio">
                             </div>
-                           
+
                         </div>
-                        
+
                         <div class="form-group row pb-0">
                             <label for="inputAÑOS" class="col-sm-5 col-form-label">N° de años</label>
                             <div class="col-sm-5">
-                                <input type="number" class="form-control" id="inputAños" v-model="NDeAnos" placeholder="N° de años">
-                                <p>{{precio*NDeAnos}}</p>
+                                <input type="number" class="form-control" id="inputAños" v-model="NDeAnos"
+                                    placeholder="N° de años">
                             </div>
                         </div>
+
+
+
+
+
+
+
+
                         <div class="form-group row pb-0 ">
-                            <label for="inputFRECUENCIA" class="col-sm-5 col-form-label">N° de años</label>
+                            <label for="inputFRECUENCIA" class="col-sm-5 col-form-label">Frecuencia de Pagos</label>
                             <div class="col-sm-5">
-                                
-                                <div class="dropdown ">
-                                    <button class="btn btn-secondary dropdown-toggle w-100" type="button"
-                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                       Mensual
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
+                                <Dropdown v-model="selectedFrecuencia" :options="frecuencia" optionLabel="name"
+                                    optionValue="code" placeholder="Seleccione la fecuencia"
+                                    class=" dropdown-toggle btn btn-secondary w-100" />
+
 
                             </div>
                         </div>
@@ -104,27 +127,21 @@ const NDeAnos = ref();
                         <div class="form-group row pb-0 ">
                             <label for="inputDIAS" class="col-sm-5 col-form-label">Dias por año</label>
                             <div class="col-sm-5">
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle col-sm-5 w-100" type="button"
-                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        360
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
+                                <Dropdown v-model="selectedDias" :options="dias" optionLabel="name" optionValue="code"
+                                    placeholder="Select a City" class=" dropdown-toggle btn btn-secondary w-100" />
 
                             </div>
                         </div>
 
+
+
+
                         <div class="form-group row pb-0">
                             <label for="inputTEA" class="col-sm-5 col-form-label">%TEA</label>
                             <div class="col-sm-4">
-                                <input type="number" step="0.00000001" min="0" max="10" class="form-control" id="inputTea" placeholder="TEA">
-                                
+                                <input type="number" step="0.00000001" min="0" max="10" class="form-control"
+                                    id="inputTea" v-model="tea" placeholder="TEA" >
+
                             </div>
                             <label class="col-sm-1">%</label>
                         </div>
@@ -132,8 +149,9 @@ const NDeAnos = ref();
                         <div class="form-group row pb-0">
                             <label for="inputIGV" class="col-sm-5 col-form-label">% de IGV</label>
                             <div class="col-sm-4">
-                                <input type="number" step="0.001" min="0" max="10" class="form-control" id="inputIgv" placeholder="IGV">
-                                
+                                <input type="number" step="0.001" min="0" max="10" class="form-control" id="inputIgv" v-model="igv"
+                                    placeholder="IGV">
+
                             </div>
                             <label class="col-sm-1">%</label>
                         </div>
@@ -141,8 +159,9 @@ const NDeAnos = ref();
                         <div class="form-group row pb-0">
                             <label for="inputRENTA" class="col-sm-5 col-form-label">% de impuesto a la renta</label>
                             <div class="col-sm-4">
-                                <input type="number" step="0.001" min="0" max="10" class="form-control" id="inputRenta" placeholder="Renta">
-                                
+                                <input type="number" step="0.001" min="0" max="10" class="form-control" id="inputRenta" v-model="impuesto"
+                                    placeholder="Renta">
+
                             </div>
                             <label class="col-sm-1">%</label>
                         </div>
@@ -150,15 +169,20 @@ const NDeAnos = ref();
                         <div class="form-group row pb-0">
                             <label for="inputRECOMPRA" class="col-sm-5 col-form-label">% de recompra</label>
                             <div class="col-sm-4">
-                                <input type="number" step="0.001" min="0" max="10" class="form-control" id="inputRecompra" placeholder="Recompra">
-                                
+                                <input type="number" step="0.001" min="0" max="10" class="form-control" v-model="recompra"
+                                    id="inputRecompra" placeholder="Recompra">
+
                             </div>
                             <label class="col-sm-1">%</label>
                         </div>
 
+                        
+                       
+
                     </form>
-                    <RouterLink to="/home/prestamo/calculo" type="button" class="btn btn-lg text-white bg-info mt-3 w-25  ">Siguiente</RouterLink>
-                 
+                    <RouterLink to="/home/prestamo/calculo" type="button"
+                        class="btn btn-lg text-white bg-info mt-3 w-25  ">Siguiente</RouterLink>
+
 
                 </div>
             </div>
@@ -234,7 +258,7 @@ const NDeAnos = ref();
 
 }
 
-form{
+form {
     background-color: rgb(192, 192, 203);
     border-radius: 3%;
 }
