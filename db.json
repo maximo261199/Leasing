@@ -1,12 +1,35 @@
-{
- 
+{ 
   "usuario": [
     {
       "id": 1,
       "name": "Rukanas",
       "gmail": "rukanas@gmail.com",
       "ruc": 201457934,
-      "password" :123456
+      "password" :123456,
+      "resultado": [
+        {
+          "id": 1,
+          "precio": 118000,
+          "anos": 3,
+          "frecuencia": 30,
+          "dias":360,
+          "tea":0.12,
+          "igv":0.18,
+          "renta":0.30,
+          "recompra":0.01,
+    
+          "notariales": 0,
+          "registrales": 0,
+          "tasacion": 0,
+          "estudio": 0,
+          "activacion":1000,
+    
+          "periodica":20.00,
+          "seguro":0.003,
+          "ks":0.175,
+          "wacc":0.10
+        }
+      ]
     },
     {
       "id": 2,
@@ -36,31 +59,8 @@
       "title": "json-server",
       "author": "typicode"
     }
-  ],
-  "resultado": [
-    {
-      "id": 1,
-      "precio": 118000,
-      "anos": 3,
-      "frecuencia": 30,
-      "dias":360,
-      "tea":0.12,
-      "igv":0.18,
-      "renta":0.30,
-      "recompra":0.01,
-
-      "notariales": 0,
-      "registrales": 0,
-      "tasacion": 0,
-      "estudio": 0,
-      "activacion":1000,
-
-      "periodica":20.00,
-      "seguro":0.003,
-      "ks":0.175,
-      "wacc":0.10
-    }
   ]
+ 
 
 
  

@@ -4,10 +4,10 @@ import { ref } from 'vue'
 import Dropdown from 'primevue/dropdown';
 
 
-const comisionPeriodica = ref();
-const seguroRiesgo = ref();
-const tasaDescuentoKs = ref();
-const tasaDescuentoWacc = ref();
+const comisionPeriodica = ref(20.00);
+const seguroRiesgo = ref(0.300000);
+const tasaDescuentoKs = ref(17.50000);
+const tasaDescuentoWacc = ref(10.0000);
 
 </script>
 
@@ -84,7 +84,7 @@ const tasaDescuentoWacc = ref();
                         <div class="form-group row pb-0">
                             <label for="inputSEGURO_RIESGO" class="col-sm-5 col-form-label">% de Seguro Riesgo</label>
                             <div class="col-sm-4">
-                                <input type="number" step="0.000001" min="0" max="10" class="form-control" v-model="seguroRiesgo"
+                                <input type="number" step="0.000001" min="0" max="100" class="form-control" v-model="seguroRiesgo"
                                     id="inputseguroRiesgo" placeholder="seguro Riesgo">
 
                             </div>

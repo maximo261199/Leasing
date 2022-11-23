@@ -3,13 +3,22 @@
 import { ref } from 'vue'
 import Dropdown from 'primevue/dropdown';
 
-const precio = ref();
-const NDeAnos = ref();
-const tea = ref();
-const igv = ref();
-const impuesto = ref();
-const recompra = ref();
+const precio = ref("118000");
+const NDeAnos = ref(3);
+const tea = ref(12.00000);
+const igv = ref(18.00000);
+const impuesto = ref(30.00000);
+const recompra = ref(1.00000);
 
+
+/*
+ precio = 118000;
+ NDeAnos = 3;
+ tea = 12.00000;
+ igv = 18.00000;
+ impuesto = 30.00000;
+ recompra = 1.00000;
+*/
 const selectedDias = ref();
 const selectedFrecuencia = ref();
 const dias = ref([
@@ -92,8 +101,7 @@ const frecuencia = ref([
                         <div class="form-group row pb-0">
                             <label for="inputPRECIO" class="col-sm-5 col-form-label">Precio de Venta del Activo</label>
                             <div class="col-sm-5">
-                                <input type="number" class="form-control" id="inputPrecio" v-model="precio"
-                                    placeholder="precio">
+                                <h5 class="borde bg bg-white ">{{ precio }}</h5>
                             </div>
 
                         </div>
@@ -101,8 +109,7 @@ const frecuencia = ref([
                         <div class="form-group row pb-0">
                             <label for="inputAÑOS" class="col-sm-5 col-form-label">N° de años</label>
                             <div class="col-sm-5">
-                                <input type="number" class="form-control" id="inputAños" v-model="NDeAnos"
-                                    placeholder="N° de años">
+                                <h5 class="borde bg bg-white ">{{ NDeAnos }}</h5>
                             </div>
                         </div>
 
@@ -139,8 +146,7 @@ const frecuencia = ref([
                         <div class="form-group row pb-0">
                             <label for="inputTEA" class="col-sm-5 col-form-label">%TEA</label>
                             <div class="col-sm-4">
-                                <input type="number" step="0.00000001" min="0" max="10" class="form-control"
-                                    id="inputTea" v-model="tea" placeholder="TEA" >
+                                <h5 class="borde bg bg-white ">{{ tea }}</h5>
 
                             </div>
                             <label class="col-sm-1">%</label>
@@ -149,8 +155,7 @@ const frecuencia = ref([
                         <div class="form-group row pb-0">
                             <label for="inputIGV" class="col-sm-5 col-form-label">% de IGV</label>
                             <div class="col-sm-4">
-                                <input type="number" step="0.001" min="0" max="10" class="form-control" id="inputIgv" v-model="igv"
-                                    placeholder="IGV">
+                                <h5 class="borde bg bg-white ">{{ igv }}</h5>
 
                             </div>
                             <label class="col-sm-1">%</label>
@@ -159,8 +164,8 @@ const frecuencia = ref([
                         <div class="form-group row pb-0">
                             <label for="inputRENTA" class="col-sm-5 col-form-label">% de impuesto a la renta</label>
                             <div class="col-sm-4">
-                                <input type="number" step="0.001" min="0" max="10" class="form-control" id="inputRenta" v-model="impuesto"
-                                    placeholder="Renta">
+                                
+                                <h5 class="borde bg bg-white ">{{impuesto}}</h5>
 
                             </div>
                             <label class="col-sm-1">%</label>
@@ -169,9 +174,7 @@ const frecuencia = ref([
                         <div class="form-group row pb-0">
                             <label for="inputRECOMPRA" class="col-sm-5 col-form-label">% de recompra</label>
                             <div class="col-sm-4">
-                                <input type="number" step="0.001" min="0" max="10" class="form-control" v-model="recompra"
-                                    id="inputRecompra" placeholder="Recompra">
-
+                                <h5 class="borde bg bg-white ">{{ recompra }}</h5>
                             </div>
                             <label class="col-sm-1">%</label>
                         </div>

@@ -4,25 +4,25 @@ import { ref } from 'vue'
 import Dropdown from 'primevue/dropdown';
 
 const ResultadoIgv = 122165415;
-const ResultadoValorNetoActivo = ref();
-const ResultadoMontoLeasing = ref();
-const ResultadoTep = ref();
-const ResultadoCuotasPorAño = ref();
-const ResultadoTotalDeCoutas = ref();
+const ResultadoValorNetoActivo = ref(100000);
+const ResultadoMontoLeasing = ref(101000);
+const ResultadoTep = ref(0.9488793);
+const ResultadoCuotasPorAño = ref(12);
+const ResultadoTotalDeCoutas = ref(36);
 
-const ResultadoSeguroRiesgo = ref();
+const ResultadoSeguroRiesgo = ref(29.50);
 
-const ResultadoInteres = ref();
-const ResultadoAmortizacion = ref();
-const ResultadoSeguroTodoRiesgo = ref();
-const ResultadoComision = ref();
-const ResultadoRecompra = ref();
-const ResultadoDesembolso = ref();
+const ResultadoInteres = ref(18704.67);
+const ResultadoAmortizacion = ref(101000);
+const ResultadoSeguroTodoRiesgo = ref(1062.00);
+const ResultadoComision = ref(720.00);
+const ResultadoRecompra = ref(1000.00);
+const ResultadoDesembolso = ref(122486.67);
 
-const ResultadoTCEABruto = ref();
-const ResultadoTCEANeto = ref();
-const ResultadoVANBruto = ref();
-const ResultadoVANNeto = ref();
+const ResultadoTCEABruto = ref(13.67462);
+const ResultadoTCEANeto = ref(9.19886);
+const ResultadoVANBruto = ref(4713.15);
+const ResultadoVANNeto = ref(26530.31);
 
 
 

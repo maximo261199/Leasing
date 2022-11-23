@@ -76,8 +76,7 @@
             <div v-if="data">
   <ul class="list-group">
   <li v-for="poke in data" class="list-group-item">
-    {{nombre = poke.name}}
-    {{poke.gmail}}
+    {{poke.name}}
   </li>
   </ul>
     
@@ -90,11 +89,15 @@
 import {ref} from 'vue'
 import {RouterLink} from 'vue-router'
 import {useGetData} from '@/composables/getData';
+import {useRoute, useRouter} from "vue-router";
+
+const route = useRoute();
+const router = useRouter();
 
 const {data, loading, getData, error} = useGetData();
 
-getData("http://localhost:3000/usuario")
-
+getData("http://localhost:3000/usuario/resultado")
+//getData(`http://localhost:3000/usuario/${route.params.}`)
 
 const nombre = ref()
 const correo = ref();

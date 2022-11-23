@@ -11,6 +11,7 @@ export const useGetData = () => {
      try{
         const res = await axios.get(url);
         data.value = res.data;
+        console.log(data.value)
     }catch (e){
         console.log(e);
         error.value = 'error de sevidor';
@@ -26,5 +27,5 @@ export const useGetData = () => {
         error,
     }
 
-    
+
 }

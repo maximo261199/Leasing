@@ -4,11 +4,11 @@ import { ref } from 'vue'
 import Dropdown from 'primevue/dropdown';
 
 
-const costoNotariales = ref();
-const costosRegistrales = ref();
-const tasacion = ref();
-const comisionEstudio = ref();
-const ComisionActivacion = ref();
+const costoNotariales = ref(0);
+const costosRegistrales = ref(0);
+const tasacion = ref(0);
+const comisionEstudio = ref(0);
+const ComisionActivacion = ref(1000);
 
 const selectedFrecuenciaCalcular = ref();
 const frecuenciaCalcular = ref([
@@ -87,8 +87,7 @@ const frecuenciaCalcular = ref([
                         <div class="form-group row pb-0">
                             <label for="inputNOTARIALEs" class="col-sm-5 col-form-label">Costos Notariales</label>
                             <div class="col-sm-5">
-                                <input type="number" class="form-control" id="inputNotariales" v-model="costoNotariales"
-                                    placeholder="Costo Notariales">
+                                <h5 class="borde bg bg-white ">{{ costoNotariales }}</h5>
                             </div>
                         </div>
 
@@ -144,8 +143,8 @@ const frecuenciaCalcular = ref([
                             <label for="inputACTIVACION" class="col-sm-5 col-form-label">% Comision de
                                 Activacion</label>
                             <div class="col-sm-4 columna ">
-                                <input type="number" step="0.00000001" min="0" max="10"
-                                    class="form-control col-sm-1 h-75" id="inputActivacion" v-model="comisionEstudio"
+                                <input type="number" step="0.00000001" min="0" max="1000000"
+                                    class="form-control col-sm-1 h-75" id="inputActivacion" v-model="ComisionActivacion"
                                     placeholder="Comision de activacion">
                                     <div class="col-sm-1 ">
                                     <Dropdown v-model="selectedFrecuenciaCalcular" :options="frecuenciaCalcular" optionLabel="name"
