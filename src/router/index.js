@@ -7,6 +7,9 @@ import Usuario from '../views/UsuarioView.vue'
 import Ayuda from '../views/AyudaView.vue'
 import Prestamo from '../views/DatosDelPrestamoView.vue'
 import Calculo from '../views/CalculoView.vue'
+import CalculoII from '../views/CalculoIIView.vue'
+import ResultadoPageI from '../views/ResultadoView.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -59,6 +62,16 @@ const router = createRouter({
       path: '/home/prestamo/calculo',
       name: 'calculo',
       component: Calculo
+    },
+    {
+      path: '/home/prestamo/calculo/calculoII',
+      name: 'calculoII',
+      component: CalculoII
+    },   
+    {
+      path: '/home/prestamo/resultado',
+      name: 'resultado',
+      component: ResultadoPageI
     }
   
   ]

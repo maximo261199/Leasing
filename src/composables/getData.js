@@ -8,9 +8,7 @@ export const useGetData = () => {
 
     const getData = async (url) =>{
         loading.value = true;
-    
-
-    try{
+     try{
         const res = await axios.get(url);
         data.value = res.data;
     }catch (e){
@@ -18,14 +16,15 @@ export const useGetData = () => {
         error.value = 'error de sevidor';
     }finally {
         loading.value = false;
-    
     }
-
     };
-    return {
+
+        return {
         getData,
         data,
         loading,
         error,
     }
+
+    
 }

@@ -1,20 +1,5 @@
 {
  
-
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
   "usuario": [
     {
       "id": 1,
@@ -45,9 +30,38 @@
       "password" :123451
     }
   ],
+  "ingreso": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "resultado": [
+    {
+      "id": 1,
+      "precio": 118000,
+      "anos": 3,
+      "frecuencia": 30,
+      "dias":360,
+      "tea":0.12,
+      "igv":0.18,
+      "renta":0.30,
+      "recompra":0.01,
+
+      "notariales": 0,
+      "registrales": 0,
+      "tasacion": 0,
+      "estudio": 0,
+      "activacion":1000,
+
+      "periodica":20.00,
+      "seguro":0.003,
+      "ks":0.175,
+      "wacc":0.10
+    }
+  ]
 
 
-  "profile": {
-    "name": "typicode"
-  }
+ 
 }

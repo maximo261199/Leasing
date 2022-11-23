@@ -128,7 +128,7 @@ const frecuencia = ref([
                             <label for="inputDIAS" class="col-sm-5 col-form-label">Dias por año</label>
                             <div class="col-sm-5">
                                 <Dropdown v-model="selectedDias" :options="dias" optionLabel="name" optionValue="code"
-                                    placeholder="Select a City" class=" dropdown-toggle btn btn-secondary w-100" />
+                                    placeholder="Seleciona los dias del año" class=" dropdown-toggle btn btn-secondary w-100" />
 
                             </div>
                         </div>

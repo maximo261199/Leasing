@@ -148,7 +148,7 @@ const frecuenciaCalcular = ref([
                                     class="form-control col-sm-1 h-75" id="inputActivacion" v-model="comisionEstudio"
                                     placeholder="Comision de activacion">
                                     <div class="col-sm-1 ">
-                                    <Dropdown v-model="selectedFrecuenciaCalcular" :options="ComisionActivacion" optionLabel="name"
+                                    <Dropdown v-model="selectedFrecuenciaCalcular" :options="frecuenciaCalcular" optionLabel="name"
                                     optionValue="code" placeholder="Seleccione la fecuencia"
                                     class=" dropdown-toggle btn btn-secondary" />
                                 </div>
@@ -162,8 +162,8 @@ const frecuenciaCalcular = ref([
 
 
                 </form>
-                <button to="/home/prestamo/calculo" class="text-white bg-info mt-3 w-25 ">Calcular</button>
-
+                <RouterLink to="/home/prestamo/calculo/calculoII" type="button" class="text-white bg-info mt-3 w-25 ">Calcular</RouterLink>
+                
             </div>
         </div>
 

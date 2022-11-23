@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="datos">
-                        <h2><b>Nombre de Usuario: </b>fulanito  </h2> 
+                        <h2><b>Nombre de Usuario: </b>{{nombre}}  </h2> 
                         <button class="btn btn-lg text-white bg-primary ">Editar</button>
                     </div>
 
@@ -76,7 +76,8 @@
             <div v-if="data">
   <ul class="list-group">
   <li v-for="poke in data" class="list-group-item">
-    {{poke.name}}
+    {{nombre = poke.name}}
+    {{poke.gmail}}
   </li>
   </ul>
     
@@ -86,6 +87,7 @@
 </template>
 
 <script setup>
+import {ref} from 'vue'
 import {RouterLink} from 'vue-router'
 import {useGetData} from '@/composables/getData';
 
@@ -94,7 +96,13 @@ const {data, loading, getData, error} = useGetData();
 getData("http://localhost:3000/usuario")
 
 
-const nombre = "fulanito"
+const nombre = ref()
+const correo = ref();
+const RUC = ref();
+
+
+
+
 
 
 
