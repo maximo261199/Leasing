@@ -4,28 +4,11 @@ import { ref } from 'vue'
 import Dropdown from 'primevue/dropdown';
 
 const ResultadoIgv = 122165415;
-const ResultadoValorNetoActivo = ref(100000);
-const ResultadoMontoLeasing = ref(101000);
-const ResultadoTep = ref(0.9488793);
-const ResultadoCuotasPorAño = ref(12);
-const ResultadoTotalDeCoutas = ref(36);
 
-const ResultadoSeguroRiesgo = ref(29.50);
-
-const ResultadoInteres = ref(18704.67);
-const ResultadoAmortizacion = ref(101000);
-const ResultadoSeguroTodoRiesgo = ref(1062.00);
-const ResultadoComision = ref(720.00);
-const ResultadoRecompra = ref(1000.00);
-const ResultadoDesembolso = ref(122486.67);
-
-const ResultadoTCEABruto = ref(13.67462);
-const ResultadoTCEANeto = ref(9.19886);
-const ResultadoVANBruto = ref(4713.15);
-const ResultadoVANNeto = ref(26530.31);
-
-
-
+defineProps({
+  resultado:Number,
+  result:String
+})
 
 
 </script>
@@ -85,132 +68,22 @@ const ResultadoVANNeto = ref(26530.31);
                     <h2>Usuario</h2>
                 </RouterLink>
             </div>
-
             <div class="fondo">
                 <div class="dentro p-0">
-                    
-                        <div class="d-flex justify-content-between ">
-                            <div class="col-sm-7 for" >
-                                <h4>Datos del Arrendamiento</h4>
-                                <div class=" d-flex justify-content-around p-1">
-                                    <h5 class="col-sm-4"> I.G.V</h5>
-                                    <h5 class="borde bg bg-white  col-sm-3 ">{{ ResultadoIgv }}</h5>
-                                </div>
-
-                                <div class=" d-flex justify-content-around  p-1">
-                                    <h5 class="col-sm-4"> Valor Neto Activo</h5>
-                                    <h5 class="borde bg bg-white  col-sm-3">{{ ResultadoValorNetoActivo }}</h5>
-                                </div>
-
-                                <div class=" d-flex justify-content-around  p-1">
-                                    <h5 class="col-sm-4"> Monto del Leasing</h5>
-                                    <h5 class="borde bg bg-white col-sm-3">{{ ResultadoMontoLeasing }}</h5>
-                                </div>
-
-                                <div class=" d-flex justify-content-around  p-1">
-                                    <h5 class="col-sm-4"> % de TEP</h5>
-                                    <h5 class="borde bg bg-white col-sm-3">{{ ResultadoTep }}</h5>
-
-                                </div>
-
-                                <div class=" d-flex justify-content-around  p-1">
-                                    <h5 class="col-sm-4"> N° de cuotas de año</h5>
-                                    <h5 class="borde bg bg-white col-sm-3">{{ ResultadoCuotasPorAño }}</h5>
-
-                                </div>
-
-                                <div class=" d-flex justify-content-around  p-1">
-                                    <h5 class="col-sm-4"> N° Total de cuotas </h5>
-                                    <h5 class="borde bg bg-white col-sm-3">{{ ResultadoTotalDeCoutas}}</h5>
-
-                                </div>
-
-
-                            </div>
-
-                            
+                                            <div class="d-flex justify-content-between ">
                             <div class="col-sm-4 for">
                                 <h4>Datos de los costos/ gastos periodicos</h4>
-
-
                                 <div>
-
                                 </div>
                                 <div class=" d-flex justify-content-around p-1">
                                     <h5 class="col-sm-4"> Seguro de Riesgo</h5>
-                                    <h5 class="borde bg bg-white col-sm-3">{{ ResultadoSeguroRiesgo }}</h5>
+                                 <h5 class="borde bg bg-white col-sm-3">{{ resultado }}</h5>
+                                    <span>{{result}}</span>
                                 </div>
                             </div>
-
                         </div>
-
-
                         <div class="d-flex justify-content-between">
-                            
-                        <div class="col-sm-7 for"  >
-                            <h4>Datos Totales</h4>
-                            
-
-                            <div class=" d-flex justify-content-around p-1">
-                                <h5 class="col-sm-4"> I.G.V</h5>
-                                <h5 class="borde bg bg-white col-sm-3">{{ ResultadoInteres }}</h5>
-                            </div>
-
-                            <div class=" d-flex justify-content-around p-1">
-                                <h5 class="col-sm-4"> I.G.V</h5>
-                                <h5 class="borde bg bg-white col-sm-3">{{ ResultadoAmortizacion }}</h5>
-                            </div>
-
-                            <div class=" d-flex justify-content-around p-1">
-                                <h5 class="col-sm-4"> I.G.V</h5>
-                                <h5 class="borde bg bg-white col-sm-3">{{ ResultadoSeguroTodoRiesgo }}</h5>
-                            </div>
-
-                            <div class=" d-flex justify-content-around p-1">
-                                <h5 class="col-sm-4">  I.G.V</h5>
-                                <h5 class="borde bg bg-white col-sm-3">{{ ResultadoComision }}</h5>
-                            </div>
-
-                            <div class=" d-flex justify-content-around p-1">
-                                <h5 class="col-sm-4"> I.G.V</h5>
-                                <h5 class="borde bg bg-white col-sm-3">{{ ResultadoRecompra }}</h5>
-                            </div>
-
-                            <div class=" d-flex justify-content-around p-1">
-                                <h5 class="col-sm-4"> I.G.V</h5>
-                                <h5 class="borde bg bg-white col-sm-3">{{ ResultadoDesembolso }}</h5>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-4 for">
-
-                            <h4>Datos de indicadores de Rentabilidad</h4>
-
-                            <div class=" d-flex justify-content-around p-1">
-                                <h5 class="col-sm-4"> I.G.V</h5>
-                                <h5 class="borde bg bg-white col-sm-3">{{ ResultadoTCEABruto }}</h5>
-                            </div>
-
-                            <div class=" d-flex justify-content-around p-1">
-                                <h5 class="col-sm-4"> I.G.V</h5>
-                                <h5 class="borde bg bg-white col-sm-3">{{ ResultadoTCEANeto }}</h5>
-                            </div>
-
-                            <div class=" d-flex justify-content-around p-1">
-                                <h5 class="col-sm-4"> I.G.V</h5>
-                                <h5 class="borde bg bg-white col-sm-3">{{ ResultadoVANBruto }}</h5>
-                            </div>
-
-                            <div class=" d-flex justify-content-around p-1">
-                                <h5 class="col-sm-4"> I.G.V</h5>
-                                <h5 class="borde bg bg-white col-sm-3">{{ ResultadoVANNeto }}</h5>
-                            </div>
-                        </div>
-
-
-                        </div>
-                      
-                   
+                                                </div>
                
                     <RouterLink to="/home/prestamo/calculo" type="button"
                         class="btn btn-lg text-white bg-info mt-3 w-25  ">Ver Historial</RouterLink>

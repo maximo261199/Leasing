@@ -1,17 +1,9 @@
-<script setup>
 
-import { ref } from 'vue'
-import Dropdown from 'primevue/dropdown';
-
-
-const comisionPeriodica = ref(20.00);
-const seguroRiesgo = ref(0.300000);
-const tasaDescuentoKs = ref(17.50000);
-const tasaDescuentoWacc = ref(10.0000);
-
-</script>
 
 <template>
+
+
+
     <div class="contenedor ">
         <div class="menu1 ">
             <div class="position-absolute top-0 start-0 badge  logo">
@@ -92,37 +84,59 @@ const tasaDescuentoWacc = ref(10.0000);
                         </div>
                 </form>
 
-                <h2 class="mt-1"><b>Datos De los Costes de Oportunidad</b></h2>
-                    <form class="m-0 p-0">
-                        <div class="form-group row pb-0">
-                            <label for="inputTASA_DESCUENTO_KS" class="col-sm-5 col-form-label">Tasa de descuento Ks</label>
-                            <div class="col-sm-5">
-                                <input type="number" step="0.000001" min="0" max="100" class="form-control" v-model="tasaDescuentoKs"
-                                    id="inputseguroRiesgo" placeholder="Tasa de Descuento Ks">
-                            </div>
-                        </div>
 
-                        
-                        <div class="form-group row pb-0">
-                            <label for="inputTASA_DESCUENTO_WACC" class="col-sm-5 col-form-label">Tasa de descuento WACC</label>
-                            <div class="col-sm-4">
-                                <input type="number" step="0.000001" min="0" max="100" class="form-control" v-model="tasaDescuentoWacc"
-                                    id="inputDescuentoWacc" placeholder="Tasa de descuento WACC">
+                  <button @click="calculo">Calcular</button>
 
-                            </div>
-                            <label class="col-sm-1">%</label>
-                        </div>
-                </form>
-                <RouterLink to="/home/prestamo/resultado" type="button" class="text-white bg-info mt-3 w-25 ">Calcular</RouterLink>
+                  <h1 type="number">{{calc}}  </h1>
+
+
+
+
+                  <resultado-view v-bind="post"
+
+                  />
+
 
             </div>
         </div>
-
 
     </div>
     </div>
 </template>
 
+<script setup>
+//  <Resultado v-bind="datos"></Resultado>
+import { ref } from 'vue'
+import Dropdown from 'primevue/dropdown';
+import router from "../router";
+import ResultadoView from "./ResultadoView.vue";
+
+
+
+
+const comisionPeriodica = ref(20.00);
+const seguroRiesgo = ref(0.1100000);
+const calc = ref(0)
+
+const  calculo =() => {
+  calc.value = comisionPeriodica.value*seguroRiesgo.value;
+ router.push('/home/prestamo/resultado')
+}
+
+const  next= () => {
+
+}
+
+const post = {
+  resultado: comisionPeriodica.value*seguroRiesgo.value,
+  result: "My Name Omar"
+}
+
+
+
+
+
+</script>
 
 
 <style  scoped>

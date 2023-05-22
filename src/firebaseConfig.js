@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB-5kQI_hesk7lDPK4TQhV-aJszFczP2rM",
-  authDomain: "finanzas-2022-2.firebaseapp.com",
-  projectId: "finanzas-2022-2",
-  storageBucket: "finanzas-2022-2.appspot.com",
-  messagingSenderId: "538793850326",
-  appId: "1:538793850326:web:298ceeecfaa8458a4c2077"
+  apiKey: "AIzaSyAJJeMPQDGAX68G3f88xZN1HrhzfJNr4kY",
+  authDomain: "bonofondomivivienda2023.firebaseapp.com",
+  projectId: "bonofondomivivienda2023",
+  storageBucket: "bonofondomivivienda2023.appspot.com",
+  messagingSenderId: "396030072431",
+  appId: "1:396030072431:web:4033fbf850074d842bdf9a"
 };
 
 initializeApp(firebaseConfig);

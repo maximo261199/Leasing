@@ -101,7 +101,7 @@ const frecuencia = ref([
                         <div class="form-group row pb-0">
                             <label for="inputPRECIO" class="col-sm-5 col-form-label">Precio de Venta del Activo</label>
                             <div class="col-sm-5">
-                                <h5 class="borde bg bg-white ">{{ precio }}</h5>
+                                <h5 class="borde bg bg-white">{{ precio }}</h5>
                             </div>
 
                         </div>

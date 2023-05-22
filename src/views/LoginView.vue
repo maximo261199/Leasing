@@ -1,57 +1,65 @@
 <template>
-    <div class="contenedor ">
+    <div class="contenedor d-flex justify-content-around">
         <div class="menu ">
-            
+          <form @submit.prevent="handleSubmit" class="m-2 p-4 rounded ">
+            <div class="d-flex justify-content-around">
 
-                <div class="Opciones mb-2">
+              <input class="text-center " type="email"
+                     placeholder="Enter your email" v-model.trim="email" >
+            </div>
 
-                    <img src="@/components/icons/logo2.png">
-                    <form>
-                        <h1>Usuario</h1>
-                        <input type="text" id="usuario">
-                        <h1>Contraseña</h1>
-                        <input type="text" id="usuario">
-                        <div class="cuenta">
-                          <h4>¿no tienes una cuenta?  </h4>
-
-                        
-                       <RouterLink to="/register"  class="btn btn-lg  p-0 text-primary"><h4>Registrate</h4>
-                        </RouterLink>
-                       
-                        </div>
-                 
-                        
-                        <button @click="home" class="btn btn-outline-primary ">ENTRAR</button>
-                    </form>
-
-                </div>
-            
+            <div class="d-flex justify-content-around">
+              <input class="text-center " type="password"
+                     placeholder="Enter your password" v-model.trim="password">
+            </div>
+            <div class="cuenta">
+              <h4>¿no tienes una cuenta?  </h4>
 
 
+              <RouterLink to="/register"  class="btn btn-lg  p-0 text-primary"><h4>Registrate</h4>
+              </RouterLink>
 
+            </div>
 
-        </div>
-        <div class="menu2">
-            <img class="banco"
-                src="https://upload.wikimedia.org/wikipedia/commons/2/29/Torre_Banco_de_la_Naci%C3%B3n.jpg" alt="">
+            <div class="d-flex justify-content-around">
+              <button class="text-center btn btn-primary"
+                      type="submit">Iniciar Sesion</button>
+            </div>
+
+          </form>
+
 
 
         </div>
     </div>
+
 </template>
 
 <script setup>
-import {useRoute, useRouter} from "vue-router/dist/vue-router";
+import {useRoute, useRouter} from "vue-router/dist/vue-router"
 import router from "../router";
 import {ref} from 'vue';
+import {useUserStore} from "../stores/user";
 
-const home = () =>{
-router.push(`/`);
-}
+const userStore = useUserStore()
+const email = ref("")
+const password = ref("")
+
 
 const register = () =>{
 router.push(`/register`);
 }
+
+const handleSubmit = async() => {
+  if(!email.value || !password.value){
+    return alert('llena los campos')
+  }
+
+  await userStore.loginUser(email.value, password.value)
+
+}
+
+
 </script>
 
 <style  scoped>
@@ -71,7 +79,7 @@ router.push(`/register`);
 
 .menu {
     height: 100%;
-    width: 50%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,6 +88,8 @@ router.push(`/register`);
 }
 
 .menu2 {
+  background-color: white;
+  border-color: #181818;
     height: 100%;
     width: 50%;
     margin: 0;
@@ -95,9 +105,9 @@ router.push(`/register`);
     padding: 0;
 }
 
-.Opciones img{
+.menu2 img{
   margin-top: 20px;
-  width:100%;
+  width:auto;
   height:auto;
 }
 
