@@ -3,22 +3,9 @@
 import { ref } from 'vue'
 import Dropdown from 'primevue/dropdown';
 
-const precio = ref("118000");
-const NDeAnos = ref(3);
-const tea = ref(12.00000);
-const igv = ref(18.00000);
-const impuesto = ref(30.00000);
-const recompra = ref(1.00000);
 
 
-/*
- precio = 118000;
- NDeAnos = 3;
- tea = 12.00000;
- igv = 18.00000;
- impuesto = 30.00000;
- recompra = 1.00000;
-*/
+
 const selectedDias = ref();
 const selectedFrecuencia = ref();
 const dias = ref([
@@ -55,7 +42,7 @@ const frecuencia = ref([
                     </div>
                     <div class="p-1">
                         <RouterLink to="/home/prestamo" type="button"
-                            class="btn btn-lg  rounded-0 fs-1 text-dark bg-white">Leasing
+                            class="btn btn-lg  rounded-0 fs-1 text-dark bg-white">Mi Vivienda
                         </RouterLink>
                     </div>
                     <div class="p-1">
@@ -88,7 +75,7 @@ const frecuencia = ref([
         </div>
         <div class="menu2">
             <div class="tituloSuperior">
-                <h2>Leasing</h2>
+                <h2>Mi Vivienda 2</h2>
                 <RouterLink to="/home/usuario" type="button" class="text-white ">
                     <h2>Usuario</h2>
                 </RouterLink>
@@ -104,6 +91,7 @@ const frecuencia = ref([
                                 <h5 class="borde bg bg-white">{{ precio }}</h5>
                             </div>
 
+
                         </div>
 
                         <div class="form-group row pb-0">
@@ -112,13 +100,6 @@ const frecuencia = ref([
                                 <h5 class="borde bg bg-white ">{{ NDeAnos }}</h5>
                             </div>
                         </div>
-
-
-
-
-
-
-
 
                         <div class="form-group row pb-0 ">
                             <label for="inputFRECUENCIA" class="col-sm-5 col-form-label">Frecuencia de Pagos</label>
@@ -143,44 +124,7 @@ const frecuencia = ref([
 
 
 
-                        <div class="form-group row pb-0">
-                            <label for="inputTEA" class="col-sm-5 col-form-label">%TEA</label>
-                            <div class="col-sm-4">
-                                <h5 class="borde bg bg-white ">{{ tea }}</h5>
 
-                            </div>
-                            <label class="col-sm-1">%</label>
-                        </div>
-
-                        <div class="form-group row pb-0">
-                            <label for="inputIGV" class="col-sm-5 col-form-label">% de IGV</label>
-                            <div class="col-sm-4">
-                                <h5 class="borde bg bg-white ">{{ igv }}</h5>
-
-                            </div>
-                            <label class="col-sm-1">%</label>
-                        </div>
-
-                        <div class="form-group row pb-0">
-                            <label for="inputRENTA" class="col-sm-5 col-form-label">% de impuesto a la renta</label>
-                            <div class="col-sm-4">
-                                
-                                <h5 class="borde bg bg-white ">{{impuesto}}</h5>
-
-                            </div>
-                            <label class="col-sm-1">%</label>
-                        </div>
-
-                        <div class="form-group row pb-0">
-                            <label for="inputRECOMPRA" class="col-sm-5 col-form-label">% de recompra</label>
-                            <div class="col-sm-4">
-                                <h5 class="borde bg bg-white ">{{ recompra }}</h5>
-                            </div>
-                            <label class="col-sm-1">%</label>
-                        </div>
-
-                        
-                       
 
                     </form>
                     <RouterLink to="/home/prestamo/calculo" type="button"
