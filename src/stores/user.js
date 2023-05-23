@@ -47,6 +47,9 @@ export const useUserStore = defineStore('user', {
             }finally {
                 this.loadingUser = false;
             }
+        },
+        async logIn(){
+
         }
 
     }
