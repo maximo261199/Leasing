@@ -1,27 +1,47 @@
 <script setup>
-
+import {useCalculosStore} from "../stores/calculos";
 import { ref } from 'vue'
-import Dropdown from 'primevue/dropdown';
+
+const useCalculo = useCalculosStore()
+
+const {add} = useCalculo;
 
 
 
 
-const selectedDias = ref();
-const selectedFrecuencia = ref();
-const dias = ref([
-    { name: "Año ordinario (360 días)", code: 360 },
-    { name: "Año exacto (365 días)", code: 365 }
+const precioDeVenta =         ref();
+const FrecuenciaDePagos =     ref();
+const coutaInicial =          ref();
+const BonoVivienda =          ref();
+const CostosNotariales =      ref(6);
+const CostosRegistrales =     ref(7);
+const Tasacion =              ref(8);
+const ComisionDeEstudio =     ref(9)
+const ComisionDeActivacion =  ref(10)
+const ComisionPeriodica =     ref(11);
+const Portes =                ref(12);
+const GastosAdministrativos = ref(13)
+const seguroDeRiesgo =        ref(14)
 
+// falta 1
+const lista = ref([
+    precioDeVenta,
+    FrecuenciaDePagos,
+  coutaInicial,
+  BonoVivienda,
+  CostosNotariales,
+ CostosRegistrales ,
+ Tasacion,
+ ComisionDeEstudio ,
+ ComisionDeActivacion ,
+ ComisionPeriodica,
+ Portes ,
+ GastosAdministrativos ,
+ seguroDeRiesgo
 ]);
-const frecuencia = ref([
-        { name: "Mensual", code: 30},
-        { name: "Bimestral", code: 60},
-        { name: "Trimestral", code: 90 },
-        { name: "Cuatrimestral", code: 120 },
-        { name: "Semestral", code: 180 },
-        { name: "Anual", code: 360 }
 
-]);
+
+
 
 </script>
 
@@ -83,54 +103,154 @@ const frecuencia = ref([
 
             <div class="fondo">
                 <div class="dentro">
-                    <h2 class="mt-1"><b>Datos Del Prestamo</b></h2>
-                    <form class="m-0 p-0">
-                        <div class="form-group row pb-0">
-                            <label for="inputPRECIO" class="col-sm-5 col-form-label">Precio de Venta del Activo</label>
+                    <h4 class="mt-0 p-0"><b>Credito Hipotecario</b></h4>
+
+                  <form >
+                   <div class="container text-center">
+                     <div class="row">
+                       <div class="col border border-primary">
+
+                         <h5 class=" mt-0 p-0"> Datos del prestamo</h5>
+
+
+                         <div class="form-group row p-0 m-0 ">
+                           <label for="inputPRECIO" class="col-sm-5 col-form-label p-0 m-0 ">Precio de Venta</label>
+                           <div class="col-sm-5">
+                             <input type="number" step="0.01" min="0" class="form-control col-sm-1 h-100  p-0 m-0 " id="input" v-model="precioDeVenta" >
+                           </div>
+                         </div>
+
+                         <div class="form-group row p-0 m-0">
+                           <label for="inputPRECIO" class="col-sm-5 col-form-label p-0 m-0 ">Frecuencia de Pagos</label>
+                           <div class="col-sm-5">
+                             <input type="number" step="0.00000001" min="0"  class="form-control col-sm-1 h-100 p-0 m-0" id="input" v-model="FrecuenciaDePagos" >
+                           </div>
+                         </div>
+
+
+                         <div class="form-group row p-0">
+                           <label for="inputPRECIO" class="col-sm-5 col-form-label p-0 m-0 ">Couta Inicial %</label>
+                           <div class="col-sm-5">
+                             <input type="number" step="0.00000001" min="0"  class="form-control col-sm-1 h-100 p-0 m-0" id="input" v-model="coutaInicial" >
+                           </div>
+                         </div>
+
+                         <div class="form-group row p-0">
+                           <label for="inputPRECIO" class="col-sm-5 col-form-labelp-0 m-0">Bono MiVivienda</label>
+                           <div class="col-sm-5">
+                             <input type="number" step="0.00000001" min="0"  class="form-control col-sm-1 h-100 p-0 m-0" id="input" v-model="BonoVivienda" >
+                           </div>
+                         </div>
+
+
+
+
+
+
+                       </div>
+
+
+                       <div class="col border border-primary">
+
+                          <h5  class=" mt-0 p-0"><b>Costes/gastos Iniciales</b></h5>
+                          <div class="form-group row p-0">
+                             <label for="inputPRECIO" class="col-sm-5 col-form-label p-0 m-0">Costos Notariales</label>
                             <div class="col-sm-5">
-                                <h5 class="borde bg bg-white">{{ precio }}</h5>
-                            </div>
+                               <input type="number" step="0.00000001" min="0"  class="form-control col-sm-1 h-100 p-0 m-0" id="input" v-model="CostosNotariales" >
+                             </div>
+                           </div>
+
+                         <div class="form-group row p-0">
+                           <label for="inputPRECIO" class="col-sm-5 col-form-label p-0 m-0">Costos Registrales</label>
+                           <div class="col-sm-5">
+                             <input type="number" step="0.01" min="0"  class="form-control col-sm-1 h-100 p-0 m-0" id="input" v-model="CostosRegistrales" >
+                           </div>
+                         </div>
+
+                         <div class="form-group row p-0">
+                           <label for="inputPRECIO" class="col-sm-5 col-form-label p-0 m-0">Tasacion</label>
+                           <div class="col-sm-5">
+                             <input type="number" step="0.01" min="0"  class="form-control col-sm-1 h-100 p-0 m-0" id="input" v-model="Tasacion" >
+                           </div>
+                         </div>
 
 
-                        </div>
+                         <div class="form-group row p-0">
+                           <label for="inputPRECIO" class="col-sm-5 col-form-label p-0 m-0">Comision de estudio</label>
+                           <div class="col-sm-5">
+                             <input type="number" step="0.01" min="0"  class="form-control col-sm-1 h-100 p-0 m-0" id="input" v-model="ComisionDeEstudio" >
+                           </div>
+                         </div>
 
-                        <div class="form-group row pb-0">
-                            <label for="inputAÑOS" class="col-sm-5 col-form-label">N° de años</label>
-                            <div class="col-sm-5">
-                                <h5 class="borde bg bg-white ">{{ NDeAnos }}</h5>
-                            </div>
-                        </div>
-
-                        <div class="form-group row pb-0 ">
-                            <label for="inputFRECUENCIA" class="col-sm-5 col-form-label">Frecuencia de Pagos</label>
-                            <div class="col-sm-5">
-                                <Dropdown v-model="selectedFrecuencia" :options="frecuencia" optionLabel="name"
-                                    optionValue="code" placeholder="Seleccione la fecuencia"
-                                    class=" dropdown-toggle btn btn-secondary w-100" />
-
-
-                            </div>
-                        </div>
-
-                        <div class="form-group row pb-0 ">
-                            <label for="inputDIAS" class="col-sm-5 col-form-label">Dias por año</label>
-                            <div class="col-sm-5">
-                                <Dropdown v-model="selectedDias" :options="dias" optionLabel="name" optionValue="code"
-                                    placeholder="Seleciona los dias del año" class=" dropdown-toggle btn btn-secondary w-100" />
-
-                            </div>
-                        </div>
+                         <div class="form-group row p-0">
+                           <label for="inputPRECIO" class="col-sm-5 col-form-label p-0 m-0">Comision de act
+                           </label>
+                           <div class="col-sm-5">
+                             <input type="number" step="0.01" min="0"  class="form-control col-sm-1 h-100 p-0 m-0" id="input" v-model="ComisionDeActivacion" >
+                           </div>
+                         </div>
 
 
 
 
 
+                       </div>
 
-                    </form>
+                     </div>
+                     <div class="row border border-primary">
+                       <div>
+                         <div class="form-group row p-0">
+                           <label for="inputPRECIO" class="col-sm-5 col-form-label p-0 m-0">Comision periodica</label>
+                           <div class="col-sm-3">
+                             <input type="number" step="0.01" min="0"  class="form-control col-sm-1  h-100 p-0 m-0" id="input" v-model="ComisionPeriodica" >
+                           </div>
+                         </div>
+
+                         <div class="form-group row p-0">
+                           <label for="inputPRECIO" class="col-sm-5 col-form-label p-0 m-0">Portes</label>
+                           <div class="col-sm-3">
+                             <input type="number" step="0.01" min="0"  class="form-control col-sm-1  h-100 p-0 m-0" id="input" v-model="Portes" >
+                           </div>
+                         </div>
+
+                         <div class="form-group row p-0">
+                           <label for="inputPRECIO" class="col-sm-5 col-form-label p-0 m-0">Gastos de Administracion</label>
+                           <div class="col-sm-5">
+                             <input type="number" step="0.01" min="0"  class="form-control col-sm-1  h-100 p-0 m-0" id="input" v-model="GastosAdministrativos" >
+                           </div>
+                         </div>
+
+                         <div class="form-group row p-0">
+                           <label for="inputPRECIO" class="col-sm-5 col-form-label p-0 m-0">Gastos de Administracion</label>
+                           <div class="col-sm-5">
+                             <input type="number" step="0.01" min="0"  class="form-control col-sm-1  h-100 p-0 m-0" id="input" v-model="ComisionDeActivacion" >
+                           </div>
+                         </div>
+
+                         <div class="form-group row p-0">
+                           <label for="inputPRECIO" class="col-sm-5 col-form-label p-0 m-0">%de seguro riesgo
+                           </label>
+                           <div class="col-sm-5">
+                             <input type="number" step="0.01" min="0"  class="form-control col-sm-1  h-100 p-0 m-0" id="input" v-model="seguroDeRiesgo" >
+                           </div>
+                         </div>
+                       </div>
+
+                     </div>
+
+                   </div>
+
+
+              </form>
+
                     <RouterLink to="/home/prestamo/calculo" type="button"
-                        class="btn btn-lg text-white bg-info mt-3 w-25  ">Siguiente</RouterLink>
+                        class="btn btn-lg text-white bg-info mt-3 w-25  ">Calcular</RouterLink>
 
 
+                  <button   class="btn btn-outline-primary mb-2"
+                  @click="add(lista)"
+                  >Agregar
+                  </button>
                 </div>
             </div>
 

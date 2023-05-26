@@ -1,25 +1,35 @@
 <script setup>
-
+import {useCalculosStore} from "../stores/calculos";
+import {storeToRefs} from "pinia";
 import { ref } from 'vue'
-import Dropdown from 'primevue/dropdown';
+
+const useCalculo = useCalculosStore()
+
+const {datos} = storeToRefs(useCalculo);
+
+const list1 = ref([])
 
 
-const costoNotariales = ref(0);
-const costosRegistrales = ref(0);
-const tasacion = ref(0);
-const comisionEstudio = ref(0);
-const ComisionActivacion = ref(1000);
+const precioDeVenta =         ref(datos.value.at(0));
+const FrecuenciaDePagos =     ref(datos.value.at(1));
+const coutaInicial =          ref(datos.value.at(2));
+const BonoVivienda =          ref(datos.value.at(3));
+const CostosNotariales =      ref(datos.value.at(4));
+const CostosRegistrales =     ref(datos.value.at(5));
+const Tasacion =              ref(datos.value.at(6));
+const ComisionDeEstudio =     ref(datos.value.at(7));
+const ComisionDeActivacion =  ref(datos.value.at(8));
+const ComisionPeriodica =     ref(datos.value.at(9));
+const Portes =                ref(datos.value.at(10));
+const GastosAdministrativos = ref(datos.value.at(11));
+const seguroDeRiesgo =        ref(datos.value.at(12));
 
-const selectedFrecuenciaCalcular = ref();
-const frecuenciaCalcular = ref([
-        { name: "Mensual", code: 30},
-        { name: "Bimestral", code: 60},
-        { name: "Trimestral", code: 90 },
-        { name: "Cuatrimestral", code: 120 },
-        { name: "Semestral", code: 180 },
-        { name: "Anual", code: 360 }
 
-]);
+const  suma = precioDeVenta.value + FrecuenciaDePagos.value;
+
+
+
+
 
 </script>
 
@@ -82,86 +92,21 @@ const frecuenciaCalcular = ref([
             <div class="fondo">
                 <div class="dentro">
 
-                    <h2 class="mt-1"><b>Datos De los Costes / Gastos Iniciales</b></h2>
-                    <form class="m-0 p-0">
-                        <div class="form-group row pb-0">
-                            <label for="inputNOTARIALEs" class="col-sm-5 col-form-label">Costos Notariales</label>
-                            <div class="col-sm-5">
-                                <h5 class="borde bg bg-white ">{{ costoNotariales }}</h5>
-                            </div>
-                        </div>
+                    <h2 class="mt-1"><b>Resultados</b></h2>
+                  <h3>{{as1}}</h3>
+
+                    <h3> Aqui estan los datos</h3>
+                    <h4>precio de venta {{precioDeVenta}}</h4>
+                  <h4>Frecuencia de pagos {{FrecuenciaDePagos}}</h4>
+                  <h4>couta inicial {{coutaInicial}}</h4>
+                  <h4>Suma : {{suma}}</h4>
 
 
-                        <div class="form-group row pb-0">
-                            <label for="inputCOSTOS" class="col-sm-5 col-form-label">% Costos Registrales</label>
-                            <div class="col-sm-4 columna ">
-                                <input type="number" step="0.00000001" min="0" max="10"
-                                    class="form-control col-sm-1 h-75" id="input" v-model="costosRegistrales" placeholder="Costos Registrales">
-                                <div class="col-sm-1 ">
-                                    <Dropdown v-model="selectedFrecuenciaCalcular" :options="frecuenciaCalcular" optionLabel="name"
-                                    optionValue="code" placeholder="Seleccione la fecuencia" 
-                                    class=" dropdown-toggle btn btn-secondary" />
-                                </div>
-                            </div>
-
-                        </div>
+                  <!--
+                 <RouterLink to="/home/prestamo/calculo/calculoII" type="button" class="text-white bg-info mt-3 w-25 ">Calcular</RouterLink>
+                  -->
 
 
-
-                        <div class="form-group row pb-0">
-                            <label for="inputTASACION" class="col-sm-5 col-form-label">% Tasacion</label>
-                            <div class="col-sm-4 columna ">
-                                <input type="number" step="0.00000001" min="0" max="10"
-                                    class="form-control col-sm-1 h-75" id="inputTasacion" v-model="tasacion" placeholder="Tasacion">
-                                    <div class="col-sm-1 ">
-                                    <Dropdown v-model="selectedFrecuenciaCalcular" :options="frecuenciaCalcular" optionLabel="name"
-                                    optionValue="code" placeholder="Seleccione la fecuencia"
-                                    class=" dropdown-toggle btn btn-secondary" />
-                                </div>
-
-
-                            </div>
-                        </div>
-
-                        <div class="form-group row pb-0">
-                            <label for="inputESTUDIO" class="col-sm-5 col-form-label">% Comision de estudio</label>
-                            <div class="col-sm-4 columna ">
-                                <input type="number" step="0.00000001" min="0" max="10"
-                                    class="form-control col-sm-1 h-75" id="inputEstudio" v-model="comisionEstudio"
-                                    placeholder="Comision de estudio">
-                                    <div class="col-sm-1 ">
-                                    <Dropdown v-model="selectedFrecuenciaCalcular" :options="frecuenciaCalcular" optionLabel="name"
-                                    optionValue="code" placeholder="Seleccione la fecuencia"
-                                    class=" dropdown-toggle btn btn-secondary" />
-                                </div>
-
-
-                            </div>
-                        </div>
-
-                        <div class="form-group row pb-0">
-                            <label for="inputACTIVACION" class="col-sm-5 col-form-label">% Comision de
-                                Activacion</label>
-                            <div class="col-sm-4 columna ">
-                                <input type="number" step="0.00000001" min="0" max="1000000"
-                                    class="form-control col-sm-1 h-75" id="inputActivacion" v-model="ComisionActivacion"
-                                    placeholder="Comision de activacion">
-                                    <div class="col-sm-1 ">
-                                    <Dropdown v-model="selectedFrecuenciaCalcular" :options="frecuenciaCalcular" optionLabel="name"
-                                    optionValue="code" placeholder="Seleccione la fecuencia"
-                                    class=" dropdown-toggle btn btn-secondary" />
-                                </div>
-
-
-                            </div>
-                        </div>
-
-
-               
-
-
-                </form>
-                <RouterLink to="/home/prestamo/calculo/calculoII" type="button" class="text-white bg-info mt-3 w-25 ">Calcular</RouterLink>
                 
             </div>
         </div>
