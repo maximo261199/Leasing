@@ -105,7 +105,32 @@ const  suma = precioDeVenta.value + FrecuenciaDePagos.value;
                   <!--
                  <RouterLink to="/home/prestamo/calculo/calculoII" type="button" class="text-white bg-info mt-3 w-25 ">Calcular</RouterLink>
                   -->
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Suma</th>
+                      <th scope="col">Resta</th>
+                      <th scope="col">divicion</th>
+                      <th scope="col">multiplicacion</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <ul id="example-1">
+                      <li v-for="item in list1">
+                        {{ item }}
+                      </li>
+                    </ul>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>@feohdewf</td>
+                    </tr>
 
+                    </tbody>
+                  </table>
 
                 
             </div>
