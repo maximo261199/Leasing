@@ -1,28 +1,12 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
-
-  <RouterView class="rouer"/> 
+  <RouterView />
 </template>
 
-<style scoped>
-header{
-  background: rgb(61, 87,126);
-  border: 1px solid rgb(61, 87,126);
-}
-
-
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-
-</style>
-
+<style scoped></style>
 
 <!--
 <router-link class="navbar-brand" to="/">
@@ -41,4 +25,3 @@ header{
 
 
 -->
-

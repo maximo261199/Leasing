@@ -7,7 +7,7 @@ const firebaseConfig = {
   projectId: "bonofondomivivienda2023",
   storageBucket: "bonofondomivivienda2023.appspot.com",
   messagingSenderId: "396030072431",
-  appId: "1:396030072431:web:4033fbf850074d842bdf9a"
+  appId: "1:396030072431:web:4033fbf850074d842bdf9a",
 };
 
 initializeApp(firebaseConfig);
