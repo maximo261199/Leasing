@@ -44,360 +44,242 @@ const lista = ref([
     <Navbar />
 
     <div class="w-3/4 bg-white">
-      <div class="bg-[#acacac] flex justify-between px-[8%] py-6 uppercase">
+      <div
+        class="bg-[#acacac] flex justify-between px-[8%] py-6 uppercase text-white font-bold"
+      >
         <h2>Mi Vivienda 2</h2>
         <RouterLink to="/home/usuario" type="button"> Usuario </RouterLink>
       </div>
 
-      <div class="fondo">
-        <div class="dentro">
-          <p class="font-bold">Credito Hipotecario</p>
+      <div class="w-11/12 mx-auto flex flex-col h-[85%] justify-between">
+        <form>
+          <h2 class="font-bold my-3 uppercase text-2xl">Credito Hipotecario</h2>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-[#acacac] p-3 rounded-xl">
+              <h2 class="uppercase font-bold">Datos del prestamo</h2>
 
-          <form>
-            <div class="container text-center">
-              <div class="row">
-                <div class="col border border-primary">
-                  <h5 class="mt-0 p-0">Datos del prestamo</h5>
-
-                  <div class="form-group row p-0 m-0">
-                    <label
-                      for="inputPRECIO"
-                      class="col-sm-5 col-form-label p-0 m-0"
-                      >Precio de Venta</label
-                    >
-                    <div class="col-sm-5">
-                      <input
-                        type="number"
-                        step="0.01"
-                        min="0"
-                        class="form-control col-sm-1 h-100 p-0 m-0"
-                        id="input"
-                        v-model="precioDeVenta"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="form-group row p-0 m-0">
-                    <label
-                      for="inputPRECIO"
-                      class="col-sm-5 col-form-label p-0 m-0"
-                      >Frecuencia de Pagos</label
-                    >
-                    <div class="col-sm-5">
-                      <input
-                        type="number"
-                        step="0.00000001"
-                        min="0"
-                        class="form-control col-sm-1 h-100 p-0 m-0"
-                        id="input"
-                        v-model="FrecuenciaDePagos"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="form-group row p-0">
-                    <label
-                      for="inputPRECIO"
-                      class="col-sm-5 col-form-label p-0 m-0"
-                      >Couta Inicial %</label
-                    >
-                    <div class="col-sm-5">
-                      <input
-                        type="number"
-                        step="0.00000001"
-                        min="0"
-                        class="form-control col-sm-1 h-100 p-0 m-0"
-                        id="input"
-                        v-model="coutaInicial"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="form-group row p-0">
-                    <label
-                      for="inputPRECIO"
-                      class="col-sm-5 col-form-labelp-0 m-0"
-                      >Bono MiVivienda</label
-                    >
-                    <div class="col-sm-5">
-                      <input
-                        type="number"
-                        step="0.00000001"
-                        min="0"
-                        class="form-control col-sm-1 h-100 p-0 m-0"
-                        id="input"
-                        v-model="BonoVivienda"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col border border-primary">
-                  <h5 class="mt-0 p-0"><b>Costes/gastos Iniciales</b></h5>
-                  <div class="form-group row p-0">
-                    <label
-                      for="inputPRECIO"
-                      class="col-sm-5 col-form-label p-0 m-0"
-                      >Costos Notariales</label
-                    >
-                    <div class="col-sm-5">
-                      <input
-                        type="number"
-                        step="0.00000001"
-                        min="0"
-                        class="form-control col-sm-1 h-100 p-0 m-0"
-                        id="input"
-                        v-model="CostosNotariales"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="form-group row p-0">
-                    <label
-                      for="inputPRECIO"
-                      class="col-sm-5 col-form-label p-0 m-0"
-                      >Costos Registrales</label
-                    >
-                    <div class="col-sm-5">
-                      <input
-                        type="number"
-                        step="0.01"
-                        min="0"
-                        class="form-control col-sm-1 h-100 p-0 m-0"
-                        id="input"
-                        v-model="CostosRegistrales"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="form-group row p-0">
-                    <label
-                      for="inputPRECIO"
-                      class="col-sm-5 col-form-label p-0 m-0"
-                      >Tasacion</label
-                    >
-                    <div class="col-sm-5">
-                      <input
-                        type="number"
-                        step="0.01"
-                        min="0"
-                        class="form-control col-sm-1 h-100 p-0 m-0"
-                        id="input"
-                        v-model="Tasacion"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="form-group row p-0">
-                    <label
-                      for="inputPRECIO"
-                      class="col-sm-5 col-form-label p-0 m-0"
-                      >Comision de estudio</label
-                    >
-                    <div class="col-sm-5">
-                      <input
-                        type="number"
-                        step="0.01"
-                        min="0"
-                        class="form-control col-sm-1 h-100 p-0 m-0"
-                        id="input"
-                        v-model="ComisionDeEstudio"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="form-group row p-0">
-                    <label
-                      for="inputPRECIO"
-                      class="col-sm-5 col-form-label p-0 m-0"
-                      >Comision de act
-                    </label>
-                    <div class="col-sm-5">
-                      <input
-                        type="number"
-                        step="0.01"
-                        min="0"
-                        class="form-control col-sm-1 h-100 p-0 m-0"
-                        id="input"
-                        v-model="ComisionDeActivacion"
-                      />
-                    </div>
-                  </div>
+              <div class="flex items-center justify-between my-3">
+                <label for="inputPRECIO">Precio de Venta</label>
+                <div>
+                  <input
+                    class="border border-[#3d577e] rounded-lg"
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    id="input"
+                    v-model="precioDeVenta"
+                  />
                 </div>
               </div>
-              <div class="row border border-primary">
+
+              <div class="flex items-center justify-between my-3">
+                <label for="inputPRECIO">Frecuencia de Pagos</label>
                 <div>
-                  <div class="form-group row p-0">
-                    <label
-                      for="inputPRECIO"
-                      class="col-sm-5 col-form-label p-0 m-0"
-                      >Comision periodica</label
-                    >
-                    <div class="col-sm-3">
-                      <input
-                        type="number"
-                        step="0.01"
-                        min="0"
-                        class="form-control col-sm-1 h-100 p-0 m-0"
-                        id="input"
-                        v-model="ComisionPeriodica"
-                      />
-                    </div>
-                  </div>
+                  <input
+                    class="border border-[#3d577e] rounded-lg"
+                    type="number"
+                    step="0.00000001"
+                    min="0"
+                    id="input"
+                    v-model="FrecuenciaDePagos"
+                  />
+                </div>
+              </div>
 
-                  <div class="form-group row p-0">
-                    <label
-                      for="inputPRECIO"
-                      class="col-sm-5 col-form-label p-0 m-0"
-                      >Portes</label
-                    >
-                    <div class="col-sm-3">
-                      <input
-                        type="number"
-                        step="0.01"
-                        min="0"
-                        class="form-control col-sm-1 h-100 p-0 m-0"
-                        id="input"
-                        v-model="Portes"
-                      />
-                    </div>
-                  </div>
+              <div class="flex items-center justify-between my-3">
+                <label for="inputPRECIO">Couta Inicial %</label>
+                <div>
+                  <input
+                    class="border border-[#3d577e] rounded-lg"
+                    type="number"
+                    step="0.00000001"
+                    min="0"
+                    id="input"
+                    v-model="coutaInicial"
+                  />
+                </div>
+              </div>
 
-                  <div class="form-group row p-0">
-                    <label
-                      for="inputPRECIO"
-                      class="col-sm-5 col-form-label p-0 m-0"
-                      >Gastos de Administracion</label
-                    >
-                    <div class="col-sm-5">
-                      <input
-                        type="number"
-                        step="0.01"
-                        min="0"
-                        class="form-control col-sm-1 h-100 p-0 m-0"
-                        id="input"
-                        v-model="GastosAdministrativos"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="form-group row p-0">
-                    <label
-                      for="inputPRECIO"
-                      class="col-sm-5 col-form-label p-0 m-0"
-                      >Gastos de Administracion</label
-                    >
-                    <div class="col-sm-5">
-                      <input
-                        type="number"
-                        step="0.01"
-                        min="0"
-                        class="form-control col-sm-1 h-100 p-0 m-0"
-                        id="input"
-                        v-model="ComisionDeActivacion"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="form-group row p-0">
-                    <label
-                      for="inputPRECIO"
-                      class="col-sm-5 col-form-label p-0 m-0"
-                      >%de seguro riesgo
-                    </label>
-                    <div class="col-sm-5">
-                      <input
-                        type="number"
-                        step="0.01"
-                        min="0"
-                        class="form-control col-sm-1 h-100 p-0 m-0"
-                        id="input"
-                        v-model="seguroDeRiesgo"
-                      />
-                    </div>
-                  </div>
+              <div class="flex items-center justify-between my-3">
+                <label for="inputPRECIO">Bono MiVivienda</label>
+                <div>
+                  <input
+                    class="border border-[#3d577e] rounded-lg"
+                    type="number"
+                    step="0.00000001"
+                    min="0"
+                    id="input"
+                    v-model="BonoVivienda"
+                  />
                 </div>
               </div>
             </div>
-          </form>
 
-          <RouterLink to="/home/prestamo/calculo" type="button"
+            <div class="bg-[#acacac] p-3 rounded-xl">
+              <h2 class="uppercase font-bold">Costes/gastos Iniciales</h2>
+              <div class="flex items-center justify-between my-3">
+                <label for="inputPRECIO">Costos Notariales</label>
+                <div>
+                  <input
+                    class="border border-[#3d577e] rounded-lg"
+                    type="number"
+                    step="0.00000001"
+                    min="0"
+                    id="input"
+                    v-model="CostosNotariales"
+                  />
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between my-3">
+                <label for="inputPRECIO">Costos Registrales</label>
+                <div>
+                  <input
+                    class="border border-[#3d577e] rounded-lg"
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    id="input"
+                    v-model="CostosRegistrales"
+                  />
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between my-3">
+                <label for="inputPRECIO">Tasación</label>
+                <div>
+                  <input
+                    class="border border-[#3d577e] rounded-lg"
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    id="input"
+                    v-model="Tasacion"
+                  />
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between my-3">
+                <label for="inputPRECIO">Comisión de estudio</label>
+                <div>
+                  <input
+                    class="border border-[#3d577e] rounded-lg"
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    id="input"
+                    v-model="ComisionDeEstudio"
+                  />
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between my-3">
+                <label for="inputPRECIO">Comision de act </label>
+                <div>
+                  <input
+                    class="border border-[#3d577e] rounded-lg"
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    id="input"
+                    v-model="ComisionDeActivacion"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-[#acacac] p-3 rounded-xl">
+              <div class="flex items-center justify-between my-3">
+                <label for="inputPRECIO">Comision periodica</label>
+                <div>
+                  <input
+                    class="border border-[#3d577e] rounded-lg"
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    id="input"
+                    v-model="ComisionPeriodica"
+                  />
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between my-3">
+                <label for="inputPRECIO">Portes</label>
+                <div>
+                  <input
+                    class="border border-[#3d577e] rounded-lg"
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    id="input"
+                    v-model="Portes"
+                  />
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between my-3">
+                <label for="inputPRECIO">Gastos de Administracion</label>
+                <div>
+                  <input
+                    class="border border-[#3d577e] rounded-lg"
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    id="input"
+                    v-model="GastosAdministrativos"
+                  />
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between my-3">
+                <label for="inputPRECIO">Gastos de Administracion</label>
+                <div class="col-sm-5">
+                  <input
+                    class="border border-[#3d577e] rounded-lg"
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    id="input"
+                    v-model="ComisionDeActivacion"
+                  />
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between my-3">
+                <label for="inputPRECIO">%de seguro riesgo </label>
+                <div class="col-sm-5">
+                  <input
+                    class="border border-[#3d577e] rounded-lg"
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    id="input"
+                    v-model="seguroDeRiesgo"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div class="flex justify-around">
+          <RouterLink
+            to="/home/prestamo/calculo"
+            type="button"
+            class="uppercase font-bold bg-[#204ea1] text-white px-4 py-2 rounded-lg"
             >Calcular</RouterLink
           >
 
-          <button @click="add(lista)">Agregar</button>
+          <button
+            class="uppercase font-bold bg-[#204ea1] text-white px-4 py-2 rounded-lg"
+            @click="add(lista)"
+          >
+            Agregar
+          </button>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<style scoped>
-.contenedor {
-  display: flex;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #3d577e;
-}
-
-.menu1 {
-  width: 25%;
-  background-color: #204ea1;
-  padding: 10px;
-  text-align: center;
-  padding: 20px;
-  height: 100%;
-}
-
-.menu2 {
-  width: 75%;
-  height: 100%;
-  text-align: center;
-  padding-top: 0;
-}
-
-.tituloSuperior {
-  display: flex;
-  justify-content: space-between;
-  height: 10%;
-  padding-left: 8%;
-  padding-right: 8%;
-  background-color: #acacac;
-  color: white;
-  align-items: center;
-}
-
-.logo {
-  display: flex;
-  display: inline-block;
-
-  vertical-align: middle;
-  padding-left: 5%;
-}
-
-.ayudaUsuario {
-}
-
-.form-check {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 20%;
-  padding-right: 20%;
-}
-
-form {
-  background-color: rgb(192, 192, 203);
-  border-radius: 3%;
-}
-
-.fondo {
-  background-color: black;
-  height: 91%;
-}
-
-.dentro {
-  background-color: white;
-  height: 100%;
-}
-</style>
+<style scoped></style>

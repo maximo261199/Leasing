@@ -1,6 +1,6 @@
 <template>
   <aside
-    class="flex flex-col bg-[#204ea1] text-white w-1/4 justify-evenly items-center"
+    class="flex flex-col bg-[#204ea1] text-white w-1/4 justify-evenly items-center text-lg"
   >
     <div>
       <img src="../components/icons/logo1.png" />
