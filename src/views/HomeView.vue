@@ -7,7 +7,9 @@ import Navbar from "./Navbar.vue";
     <Navbar />
 
     <div class="w-3/4 bg-white">
-      <div class="bg-[#acacac] flex justify-between px-[8%] py-6 uppercase">
+      <div
+        class="bg-[#acacac] flex justify-between px-[8%] py-6 uppercase text-white font-bold"
+      >
         <p>Bienvenido</p>
         <RouterLink to="/home/usuario" type="button">Usuario</RouterLink>
       </div>
@@ -15,7 +17,7 @@ import Navbar from "./Navbar.vue";
       <div
         class="border-black border-8 flex justify-center items-center h-[90%]"
       >
-        <img src="../components/icons/bienvenido.png" />
+      <img src="../components/icons/bienvenido.png" />
       </div>
     </div>
   </div>

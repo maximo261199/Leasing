@@ -233,7 +233,7 @@ const lista = ref([
 
               <div class="flex items-center justify-between my-3">
                 <label for="inputPRECIO">Gastos de Administracion</label>
-                <div class="col-sm-5">
+                <div>
                   <input
                     class="border border-[#3d577e] rounded-lg"
                     type="number"
@@ -247,7 +247,7 @@ const lista = ref([
 
               <div class="flex items-center justify-between my-3">
                 <label for="inputPRECIO">%de seguro riesgo </label>
-                <div class="col-sm-5">
+                <div>
                   <input
                     class="border border-[#3d577e] rounded-lg"
                     type="number"
@@ -282,4 +282,8 @@ const lista = ref([
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+input {
+  text-align: center;
+}
+</style>
